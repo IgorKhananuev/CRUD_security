@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Users</h1>
-<table  width="30%" border="1" cellpadding="4" cellspacing="0">
+<table  width="30%" border="1" cellpadding="10" cellspacing="0">
 
     <tr>
         <th>id</th>
@@ -31,7 +31,7 @@
         </td>
         <td>
             <th:block th:each="lu : ${list_users}">
-                <p th:text="${lu.getLastName)}"></p>
+                <p th:text="${lu.getLastName}"></p>
             </th:block>
         </td>
         <td>
