@@ -47,7 +47,7 @@ public LocalContainerEntityManagerFactoryBean getEntityManagerFactory() {
     Properties properties=new Properties();
     properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
     properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
-   // properties.put("hibernate.dialect", environment.getRequiredProperty("org.hibernate.dialect.MySQL8Dialect"));
+    //properties.put("hibernate.dialect", environment.getProperty("org.hibernate.dialect.MySQL8Dialect"));
 
 
     factoryBean.setPackagesToScan("web/model");

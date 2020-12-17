@@ -6,14 +6,14 @@
     <title>Edit</title>
 </head>
 <body>
-<form  method="post">
-
+<form method="post">
     <input type="hidden" th:value="${user.getId()}" readonly>
-<label>Name</label>
-    <input type="text" name="Name" value="" th:value="${user.getName()}"   />
-<label>Profession</label>
-    <input type="text" name ="Profession" value="" th:value="${user.getName()}" />
-<label>Age</label>
-    <input type="number" name = "Age" value="" th:value="${user.getLastName()}"/>
-    <input type="submit" value="Edit user">
+    <label>Name</label>
+    <input type="text" name="name" value="" th:value="${user.getName()}"/>
+    <label>Last name</label>
+    <input type="text" name="lastName" value="" th:value="${user.getLastName()}"/>
+    <label>Email</label>
+    <input type="text" name="email" value="" th:value="${user.getEmail()}"/>
+    <br/>
+    <input type="submit" value="Submit">
 </form>
