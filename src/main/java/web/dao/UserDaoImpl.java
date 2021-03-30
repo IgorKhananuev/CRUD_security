@@ -33,6 +33,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUserByName(String name) {
+        return (User) entityManager.createQuery("from User where name =: name")
+                .setParameter("name", name).getSingleResult();
+    }
+
+    @Override
     public void update(User user) {
         entityManager.merge(user);
 
