@@ -22,9 +22,9 @@ public class Role implements GrantedAuthority {
     @Column
     private String name;
 
-    @Transient
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+//      @Transient
+////    @ManyToMany(mappedBy = "roles")
+//      private Set<User> users;
 
     @Override
     public String getAuthority() {
