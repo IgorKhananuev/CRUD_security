@@ -6,9 +6,9 @@ CREATE TABLE users.users(
                             password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO users.users  (name,password) VALUES ('persone1', 'pass1');
-INSERT INTO users.users  (name,password) VALUES ('persone2', 'pass2');
-INSERT INTO users.users  (name,password) VALUES ('persone3', 'pass3');
+INSERT INTO users.users  (name,password) VALUES ('ADMIN', '1');
+INSERT INTO users.users  (name,password) VALUES ('USER', '2');
+
 
 
 CREATE TABLE users.roles
@@ -26,14 +26,18 @@ CREATE TABLE users.user_roles
     user_id   INT     NOT NULL,
     role_id   INT (100) NOT NULL,
 
-    FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (role_id) REFERENCES roles (id),
+    FOREIGN KEY (user_id) REFERENCES users.users (id),
+    FOREIGN KEY (role_id) REFERENCES users.roles (id),
 
     UNIQUE (user_id, role_id)
 );
 
-INSERT INTO users.user_roles VALUES (1,1);
+INSERT INTO users.user_roles VALUES (1,2);
 INSERT INTO users.user_roles VALUES (2,1);
-INSERT INTO users.user_roles VALUES (3,2);
 
-TRUNCATE users.users
+
+# TRUNCATE users.users;
+# TRUNCATE users.roles;
+# TRUNCATE users.user_roles;
+#
+# DROP DATABASE users;

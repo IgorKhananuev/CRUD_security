@@ -2,18 +2,14 @@ package web.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
-
-
 @Entity
 @Table(name="users")
 public class User implements UserDetails {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
@@ -22,10 +18,8 @@ public class User implements UserDetails {
     private String name;
     @Column
     private String password;
-//    @Column
-//    private String email;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
@@ -60,9 +54,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public String getPassword(String password) {
-        return password;
-    }
 
     public Set<Role> getRoles() {
         return roles;
@@ -80,13 +71,12 @@ public class User implements UserDetails {
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(name, user.name) &&
-                Objects.equals(password, user.password) &&
-                Objects.equals(roles, user.roles);
+                Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password, roles);
+        return Objects.hash(id, name, password);
     }
 
     @Override
@@ -96,7 +86,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override

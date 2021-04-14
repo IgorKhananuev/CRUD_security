@@ -11,16 +11,16 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-
-   UserDao userDao;
-
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    UserDao userDao;
 
     @Autowired
     UserDao getUserDao(){
         return userDao;
+    }
+
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override

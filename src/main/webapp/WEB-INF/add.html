@@ -6,7 +6,7 @@
     <title>Add</title>
 </head>
 <body>
-<form method="post" modelAttribute="user">
+<form th:method="POST" modelAttribute="user", th:action="@{/admin/add}" >
     <label>Name</label>
     <input type="text" name="name"/>
     <label>Password</label>

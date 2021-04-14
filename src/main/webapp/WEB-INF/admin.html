@@ -34,8 +34,8 @@
 
         <td>
             <th:block th:each="lu : ${list_users}">
-                <a th:href="@{/edit/{id}(id=${lu.getId()})}">edit</a>
-                <a th:href="@{/delete/{id}(id=${lu.getId()})}">delete</a>
+                <a th:method="GET" th:href="@{/admin/edit/{id}(id=${lu.getId()})}">edit</a>
+                <a th:method="POST" th:href="@{/admin/{id}(id=${lu.getId()})}">delete</a>
             </th:block>
         </td>
     </tr>

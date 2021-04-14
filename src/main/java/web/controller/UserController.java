@@ -20,15 +20,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String getUsers(Model model){
-        model.addAttribute ("list_users",userService.getAllUsers());
-        return "index";
-    }
-
     @GetMapping("/login")
     public String getLoginPage(){
         return "login";
+    }
+
+    @GetMapping("/")
+    public String getStartPage(){
+        return "index";
     }
 
     @GetMapping("/hello")
@@ -53,22 +52,14 @@ public class UserController {
         return "edit";
     }
 
-    @PostMapping("/edit/{id}")
-    public String editUser (@ModelAttribute("user")User user){
-        userService.update (user);
-        return "redirect:/";
-    }
+//    @PostMapping("/edit/{id}")
+//    public String editUser (@ModelAttribute("user")User user){
+//        userService.update (user);
+//        return "redirect:/";
+//    }
 
-    @GetMapping("/delete/{id}")
-    public String getDeleteForm (@PathVariable ("id") Long id,Model model){
-        model.addAttribute ("user",userService.getUserById (id));
-        return "edit";
-    }
-    @PostMapping("/delete/{id}")
-    public String deleteUser(@PathVariable ("id") Long id){
-        userService.deleteById (id);
-        return "redirect:/";
-    }
+
+
 
 
 
