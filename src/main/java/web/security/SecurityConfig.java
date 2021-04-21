@@ -76,9 +76,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin", "/admin/**")
                 .access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/hello")
-                .access("hasRole('ROLE_USER')");
+                .access("hasRole('ROLE_USER')")
 //                .antMatchers("/hello")
-//                .access("hasRole('ROLE_ADMIN')");
+                .antMatchers("/hello")
+                .access("hasRole('ROLE_ADMIN')");
 
 
 //        http
